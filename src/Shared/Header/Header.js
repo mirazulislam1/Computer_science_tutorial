@@ -24,11 +24,9 @@ const Header = () => {
                         <NavLink to="/fag">FAQ</NavLink>
                         <NavLink to="/blog">Blog</NavLink>   
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
-                        </Nav.Link>
+                    <Nav className='nav-link'>
+                        <NavLink to="/login">Login</NavLink>
+                        <NavLink to="/register">Register</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

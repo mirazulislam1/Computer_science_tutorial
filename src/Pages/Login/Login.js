@@ -9,7 +9,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css'
 
 const Login = () => {
-    const {googleLogin} = useContext(AuthContext)
+    const {googleLogin, signIn} = useContext(AuthContext)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,6 +17,14 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        signIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            form.reset();
+        })
+        .catch(error=>console.error(error))
     }
     //google signIn method
     const googleProvider = new GoogleAuthProvider()

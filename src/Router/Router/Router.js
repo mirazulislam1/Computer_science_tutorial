@@ -35,6 +35,10 @@ export const routes = createBrowserRouter([
             {
                 path:'blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'*',
+                element:  <div>404 not found pages</div>
             }
           
         ]

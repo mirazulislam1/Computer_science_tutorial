@@ -1,15 +1,21 @@
+import { getByDisplayValue } from '@testing-library/react';
 import React from 'react';
-import { Image } from 'react-bootstrap';
+import { useContext } from 'react';
+
+import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import logo from './download (1).jpg'
 import './Header.css'
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
+    const {user} = useContext(AuthContext)
     return (
-        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+        <Navbar className='mb-4' collapseOnSelect expand="lg" bg="success" variant="dark">
             <Container>
             <Navbar.Brand   href="#home">
             <Image roundedCircle style={{width: '60px'}} src={logo}>
@@ -28,6 +34,14 @@ const Header = () => {
                     <Nav className='nav-link'>
                         <NavLink to="/login">Login</NavLink>
                         <NavLink to="/register">Register</NavLink>
+                        <NavLink>{user?.displayName}</NavLink>
+                        <NavLink>
+                        {
+                            user.photoURL ? 
+                            <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
+                            : <FaUser></FaUser>
+                        }
+                        </NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

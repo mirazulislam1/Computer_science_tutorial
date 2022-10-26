@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -49,6 +50,7 @@ const Register = () => {
                 </Form.Group>
 
                 <input className='login-btn' type="submit" value="Register" />
+                <p className='register-link mt-2'>Already have an account ? please <Link to='/login'>Login</Link></p> 
                 <Form.Text className="text-muted">
 
                 </Form.Text>

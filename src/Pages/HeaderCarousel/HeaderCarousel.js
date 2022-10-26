@@ -18,8 +18,8 @@ const HeaderCarousel = () => {
                     />
 
                     <Carousel.Caption>
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 className='text-primary'>Financially rewarding</h3>
+                        <p className='text-info fs-5'>Computer scientists are some of the most highly paid in the world as their skills help businesses keep up with emerging trends. Areas such as cyber security and artificial intelligence, for example, have a shortage of skilled workers so there are plenty of exciting employment opportunities. </p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -31,9 +31,9 @@ const HeaderCarousel = () => {
                     />
 
                     <Carousel.Caption>
-                        
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        <h3 className='text-primary'> Computers are everywhere</h3>
+                        <p className='text-info fs-5'>
+                        There’s not an industry out there that isn’t using data and computer technology on a daily basis. Everything from finance and banking, gaming and mobile applications, to healthcare and security all require the specialist skills of professional computer scientists. 
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>

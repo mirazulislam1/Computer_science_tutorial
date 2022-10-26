@@ -18,6 +18,7 @@ const HomeDetails = () => {
         <div className='mt-5 g-4'>
             <Container>
                 <Row>
+                <h1 className='mb-4 text-info text-center'>Our Course Items</h1>
                     <Col lg='4'>
                         <Row>
                             <Col className='shadow-lg image-details' lg='12'>

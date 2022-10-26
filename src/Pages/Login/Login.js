@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css'
 
@@ -53,8 +54,7 @@ const Login = () => {
                 </Form.Group>
 
                 <input className='login-btn' type="submit" value="Login" />
-               
-
+                <p className='register-link mt-2'>New to this website ? please <Link to='/register'>Register</Link></p>
                 <ButtonGroup vertical className='login-btn'>
                     <Button onClick={handleGoogleSignIn} className='mb-2 mt-4' > <FaGoogle></FaGoogle> Login with Google</Button>
                     <Button> <FaGithub></FaGithub> Login with Github</Button>

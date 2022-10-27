@@ -3,11 +3,12 @@ import Carousel from 'react-bootstrap/Carousel';
 import pic1 from './images/img1.png'
 import pic2 from './images/img2.png'
 import './HeaderCarousel.css'
+import { Container } from 'react-bootstrap';
 
 
 const HeaderCarousel = () => {
     return (
-        <div className='carousel'>
+        <Container className='carousel mt-4'>
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -38,7 +39,7 @@ const HeaderCarousel = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        </div>
+        </Container>
     );
 };
 

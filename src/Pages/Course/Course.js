@@ -29,7 +29,7 @@ const Course = ({course}) => {
          <p>Admit-LastDate : {admit_lastDate}</p>
          <p>Batch : {batch}</p>
       </Card.Body>
-      <Button variant="success">Get premium access</Button>{' '}
+      <Link to='/premium'><Button variant="success">Get premium access</Button>{' '}</Link>
       <Card.Footer>
               <div className="d-flex justify-content-between">
                 <FaEye></FaEye>

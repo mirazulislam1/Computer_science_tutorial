@@ -5,6 +5,7 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Premium from "../../Pages/Premium/Premium";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -23,12 +24,12 @@ export const routes = createBrowserRouter([
             {
                 path:'course',
                 element:<Courses></Courses>,
-                loader: () => fetch(`http://localhost:5000/courses`)
+                loader: () => fetch('https://b610-lerning-platform-server-side-mirazulislam1.vercel.app/courses')
             },
             {
                 path:'/course/:id',
                 element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({params}) => fetch(`https://b610-lerning-platform-server-side-mirazulislam1.vercel.app/courses/${params.id}`)
             },
            
             {
@@ -42,6 +43,10 @@ export const routes = createBrowserRouter([
             {
                 path:'blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'premium',
+                element:<Premium></Premium>
             },
             {
                 path:'*',

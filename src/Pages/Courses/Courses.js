@@ -13,7 +13,7 @@ const Courses = () => {
     const courses = useLoaderData();
     return (
 
-        <Container>
+        <Container className='mt-4'>
         <Row>
             <Col lg='4'>
                 <LeftSide></LeftSide>

@@ -21,14 +21,14 @@ const Header = () => {
     }
 
     return (
-        <Navbar className='mb-4' collapseOnSelect expand="lg" bg="success" variant="dark">
+        <Navbar className='' collapseOnSelect expand="lg" bg="success" variant="dark">
             <Container>
             <Navbar.Brand   href="#home">
             <Image roundedCircle style={{width: '60px'}} src={logo}>
                 
             </Image> 
           </Navbar.Brand>
-                <Navbar.Brand href="#home">Computer-Science</Navbar.Brand>
+                <Navbar.Brand href="#home">Computer-Science-Tutorial</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav  className="me-auto nav-link">

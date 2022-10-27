@@ -9,7 +9,7 @@ import './Course.css'
 
 const Course = ({course}) => {
  
-    const {id, image, title, details, course_duration, admit_lastDate, batch } =course;
+    const { image, title, details, course_duration, admit_lastDate, batch } =course;
     return (
       <Col lg={6}>
       <Card className='mb-4'>

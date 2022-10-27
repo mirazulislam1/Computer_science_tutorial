@@ -1,16 +1,22 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css'
 
 const Login = () => {
-    const {googleLogin, signIn} = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const {googleLogin, githubLogin, signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,6 +30,8 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('')
+            navigate(from, {replace: true});
         })
         .catch(error=>console.error(error))
     }
@@ -35,10 +43,31 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+           
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+            })
 
     }
+    //github signIn method
+    const githubProvider = new GithubAuthProvider()
+
+    const handleGithubSignIn = () =>{
+        githubLogin(githubProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+            })
+
+
+    }
+
     return (
         <div className='login-form'>
             <Form onSubmit={handleSubmit} className=''>
@@ -54,17 +83,16 @@ const Login = () => {
                 </Form.Group>
 
                 <input className='login-btn' type="submit" value="Login" />
+                <Form.Text className="text-danger">
+                    {error}
+                </Form.Text>
                 <p className='register-link mt-2'>New to this website ? please <Link to='/register'>Register</Link></p>
                 <ButtonGroup vertical className='login-btn'>
                     <Button onClick={handleGoogleSignIn} className='mb-2 mt-4' > <FaGoogle></FaGoogle> Login with Google</Button>
-                    <Button> <FaGithub></FaGithub> Login with Github</Button>
+                    <Button onClick={handleGithubSignIn}> <FaGithub></FaGithub> Login with Github</Button>
                 </ButtonGroup>
 
-
-
-                <Form.Text className="text-muted">
-
-                </Form.Text>
+                
             </Form>
         </div>
     );

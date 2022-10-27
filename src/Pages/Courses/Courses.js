@@ -5,14 +5,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Course from '../Course/Course';
 import LeftSide from '../LeftSide/LeftSide';
+import './Courses.css'
 
 
 
 const Courses = () => {
     const courses = useLoaderData();
-
-    
-
     return (
 
         <Container>
@@ -21,10 +19,11 @@ const Courses = () => {
                 <LeftSide></LeftSide>
             </Col>
             <Col  lg='8'>
-                
+                <Row>
                 {
                     courses.map(course => <Course key={course.id} course={course}></Course>)
                 }
+                </Row>
                 
             </Col>
         </Row>

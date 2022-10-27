@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import { FaEye } from 'react-icons/fa';
 import { HiShare } from 'react-icons/hi2';
 import { Link } from 'react-router-dom';
@@ -28,6 +29,7 @@ const Course = ({course}) => {
          <p>Admit-LastDate : {admit_lastDate}</p>
          <p>Batch : {batch}</p>
       </Card.Body>
+      <Button variant="success">Get premium access</Button>{' '}
       <Card.Footer>
               <div className="d-flex justify-content-between">
                 <FaEye></FaEye>

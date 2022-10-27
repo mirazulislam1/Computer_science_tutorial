@@ -33,7 +33,10 @@ const Login = () => {
             setError('')
             navigate(from, {replace: true});
         })
-        .catch(error=>console.error(error))
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+            })
     }
     //google signIn method
     const googleProvider = new GoogleAuthProvider()
@@ -43,6 +46,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate('/')
            
         })
         .catch(error => {
@@ -59,6 +63,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate('/')
         })
         .catch(error => {
             console.error(error)
@@ -90,6 +95,8 @@ const Login = () => {
                 <ButtonGroup vertical className='login-btn'>
                     <Button onClick={handleGoogleSignIn} className='mb-2 mt-4' > <FaGoogle></FaGoogle> Login with Google</Button>
                     <Button onClick={handleGithubSignIn}> <FaGithub></FaGithub> Login with Github</Button>
+
+                   
                 </ButtonGroup>
 
                 
